@@ -19,6 +19,6 @@ jobs:
           ln -s /usr/bin/python2 /usr/bin/python
           pwd
           ls
-          cd build_tools/tools/linux 
+          cd tools/linux 
           python3 automate.py server
 
