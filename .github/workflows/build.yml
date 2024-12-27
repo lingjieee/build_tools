@@ -1,0 +1,22 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: docker://ubuntu:16.04
+    steps:
+      - name: Checkout code
+        uses: ubuntu:20.04
+
+      - name: Compile
+        run: |
+          apt-get -y update
+          apt-get -y install python python3 sudo
+          rm /usr/bin/python
+          ln -s /usr/bin/python2 /usr/bin/python
+          cd build_tools/tools/linux 
+          python3 automate.py server
+
