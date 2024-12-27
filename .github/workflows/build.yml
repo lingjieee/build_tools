@@ -17,6 +17,8 @@ jobs:
           apt-get -y install python python3 sudo
           rm /usr/bin/python
           ln -s /usr/bin/python2 /usr/bin/python
+          pwd
+          ls
           cd build_tools/tools/linux 
           python3 automate.py server
 
