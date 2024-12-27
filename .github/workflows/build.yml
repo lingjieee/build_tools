@@ -11,17 +11,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Compile
+      - name: Set env
         run: |
           TZ=Etc/UTC
           ln -snf /usr/share/zoneinfo/$TZ /etc/localtime
           echo $TZ > /etc/timezone
+
+      - name: Install deps
+        run: |
           apt-get -y update
-          apt-get -y install python python3 sudo
+          apt-get -y install python python3 sudo gnutls-bin
           rm /usr/bin/python
           ln -s /usr/bin/python2 /usr/bin/python
-          pwd
-          ls
+
+      - name: Build
+        run: |
           cd tools/linux 
           python3 automate.py server
-
