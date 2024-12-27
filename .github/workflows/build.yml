@@ -5,8 +5,8 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-#    container:
-#      image: docker://ubuntu:20.04
+    container:
+      image: docker://ubuntu:20.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -20,7 +20,7 @@ jobs:
       - name: Install deps
         run: |
           apt-get -y update
-          apt-get -y install python python3 sudo gnutls-bin
+          apt-get -y install python python3 sudo gnutls-bin git
           rm /usr/bin/python
           ln -s /usr/bin/python2 /usr/bin/python
 
