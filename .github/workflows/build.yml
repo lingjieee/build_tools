@@ -6,10 +6,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: docker://ubuntu:16.04
+      image: docker://ubuntu:20.04
     steps:
       - name: Checkout code
-        uses: ubuntu:20.04
+        uses: actions/checkout@v2
 
       - name: Compile
         run: |
